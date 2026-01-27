@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Football Field Booking</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('img/df515b2c-c34b-4223-be93-ed4adb23379b.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #1b5e20;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(27, 94, 32, 0.9);
+            padding: 10px 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        nav h1 {
+            color: #ffffff;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #c8e6c9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #1b5e20;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input, textarea {
+            width: 90%;
+            padding: 10px;
+            border: 2px solid #c8e6c9;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        textarea {
+            resize: none;
+            height: 150px;
+        }
+
+        input:focus, textarea:focus {
+            border-color: #81c784;
+            outline: none;
+        }
+
+        button {
+            background-color: #1b5e20;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #388e3c;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .contact-info p {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #4f4f4f;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Football Field Booking</h1>
+        <ul>
+            <li><a href="homepage.html" style="background-color: #1b5e20; color: white; padding: 10px 15px; border-radius: 5px; text-decoration: none; font-weight: bold;">HomePage</a></li>
+            <li><a href="index.html">Booking</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="Login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Contact Us</h2>
+        <form action="#" method="post">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+
+        <div class="contact-info">
+            <h3>Our Contact Information</h3>
+            <p><strong>Address:</strong> 123 football club Bangkok 10600</p>
+            <p><strong>Phone:</strong> 081-234-5678</p>
+            <p><strong>Email:</strong> rujipob.c@ku.th</p>
+        </div>
+    </div>
+</body>
+</html>

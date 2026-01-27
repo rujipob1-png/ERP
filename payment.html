@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Football Field Booking</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('img/Additional-Payment-Methods.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #1b5e20;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(27, 94, 32, 0.9);
+            padding: 10px 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        nav h1 {
+            color: #ffffff;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #c8e6c9;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #1b5e20;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input, select {
+    width: 100%;
+    height: 45px; /* กำหนดความสูง */
+    padding: 10px;
+    border: 2px solid #c8e6c9;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box; /* ให้ padding ไม่เพิ่มขนาดของกล่อง */
+}
+
+        input:focus, select:focus {
+            border-color: #81c784;
+            outline: none;
+        }
+
+        button {
+            background-color: #1b5e20;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #388e3c;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Football Field Booking</h1>
+        <ul>
+            <li><a href="homepage.html" style="background-color: #1b5e20; color: white; padding: 10px 15px; border-radius: 5px; text-decoration: none; font-weight: bold;">HomePage</a></li>
+            <li><a href="index.html">Booking</a></li>
+            <li><a href="packages.html">Packages</a></li>
+            <li><a href="register.html">Register</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="Login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h2>Payment</h2>
+        <form action="#" method="post">
+            <label for="paymentMethod">เลือกวิธีการชำระเงิน:</label>
+            <select id="paymentMethod" name="paymentMethod" required>
+                <option value="" disabled selected>โปรดเลือกวิธีการชำระเงิน</option>
+                <option value="creditCard">Credit Card</option>
+                <option value="paypal">PayPal</option>
+                <option value="bankTransfer">Bank Transfer</option>
+            </select>
+
+            <div id="creditCardInfo" style="display: none;">
+                <input type="text" name="card_number" placeholder="Card Number" required>
+                <input type="text" name="card_name" placeholder="Name on Card" required>
+                <div style="display: flex; gap: 10px;">
+                    <input type="text" name="expiry_date" placeholder="MM/YY" style="flex: 1;" required>
+                    <input type="text" name="cvv" placeholder="CVV" style="flex: 1;" required>
+                </div>
+            </div>
+
+            <div id="paypalInfo" style="display: none;">
+                <input type="email" name="paypal_email" placeholder="PayPal Email" required>
+            </div>
+
+            <div id="bankTransferInfo" style="display: none;">
+                <p>Please transfer to the following bank account:</p>
+                <p><strong>Account Name:</strong> Football Field Booking</p>
+                <p><strong>Account Number:</strong> 123-456-789</p>
+                <p><strong>Bank:</strong> Green Field Bank</p>
+                <label for="slipUpload">Upload Payment Slip:</label>
+                <input type="file" id="slipUpload" name="slipUpload" accept="image/*" required>
+            </div>
+
+            <button type="submit">Confirm to Payment</button>
+        </form>
+    </div>
+
+    <script>
+        const paymentMethod = document.getElementById('paymentMethod');
+        const creditCardInfo = document.getElementById('creditCardInfo');
+        const paypalInfo = document.getElementById('paypalInfo');
+        const bankTransferInfo = document.getElementById('bankTransferInfo');
+
+        paymentMethod.addEventListener('change', () => {
+            creditCardInfo.style.display = 'none';
+            paypalInfo.style.display = 'none';
+            bankTransferInfo.style.display = 'none';
+
+            if (paymentMethod.value === 'creditCard') {
+                creditCardInfo.style.display = 'block';
+            } else if (paymentMethod.value === 'paypal') {
+                paypalInfo.style.display = 'block';
+            } else if (paymentMethod.value === 'bankTransfer') {
+                bankTransferInfo.style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

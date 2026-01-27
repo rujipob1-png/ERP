@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Football Field Booking</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('img/4a2008b8-300a-46da-aab3-b7378870d371.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #1b5e20;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 80px auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            color: #1b5e20;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input, select {
+            width: 100%;
+            height: 45px;
+            padding: 10px;
+            border: 2px solid #c8e6c9;
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+        }
+
+        input:focus, select:focus {
+            border-color: #81c784;
+            outline: none;
+        }
+
+        button {
+            background-color: white;
+            color: #1b5e20;
+            padding: 10px;
+            border: 2px solid #1b5e20;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #1b5e20;
+            color: white;
+        }
+
+        .link {
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+
+        .link a {
+            color: #1b5e20;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .link a:hover {
+            text-decoration: underline;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #1b5e20;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+        <nav>
+            <ul>
+                <li><a href="Homepage.html">Home</a></li>
+                <li><a href="index.html">Booking</a></li>
+                <li><a href="packages.html">Packages</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <form id="loginForm">
+            <select id="userType" onchange="toggleFields()">
+                <option value="user">Login as User</option>
+                <option value="admin">Login as Admin</option>
+            </select>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="text" id="employeeID" placeholder="Employee ID" style="display:none;" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="button" onclick="login()">Login</button>
+        </form>
+        <div class="link" id="userLink">
+            <p>Don't have an account? <a href="register.html">Register here</a></p>
+            <p><a href="ForgetPassword.html">Forgot Password?</a></p>
+        </div>
+    </div>
+
+    <script>
+        function toggleFields() {
+            const userType = document.getElementById("userType").value;
+            const emailField = document.getElementById("email");
+            const employeeIDField = document.getElementById("employeeID");
+            const userLink = document.getElementById("userLink");
+
+            if (userType === "admin") {
+                emailField.style.display = "none";
+                employeeIDField.style.display = "block";
+                userLink.style.display = "none";
+            } else {
+                emailField.style.display = "block";
+                employeeIDField.style.display = "none";
+                userLink.style.display = "block";
+            }
+        }
+
+        function login() {
+            const userType = document.getElementById("userType").value;
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const employeeID = document.getElementById("employeeID").value;
+
+            if (userType === "user" && (email === "" || password === "")) {
+                alert("กรุณากรอก Email และ Password");
+                return;
+            }
+    
+            if (userType === "admin" && (employeeID === "" || password === "")) {
+                alert("กรุณากรอก Employee ID และ Password");
+                return;
+            }
+    
+            // ถ้ากรอกครบให้เข้าสู่หน้าถัดไป
+            if (userType === "user") {
+                window.location.href = "index.html"; // ไปหน้า Booking (User)
+            } else if (userType === "admin") {
+                window.location.href = "Adminpage.html"; // ไปหน้า Adminpage (Admin)
+            }
+        }
+    </script>
+</body>
+</html>

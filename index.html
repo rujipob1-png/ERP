@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Field Booking</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: url('img/5fce4fd5-2970-492d-ae1b-2cc4a941bbe1.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #1b5e20;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(27, 94, 32, 0.9);
+            padding: 10px 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.6);
+        }
+
+        nav h1 {
+            color: #ffffff;
+            font-size: 24px;
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 16px;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #c8e6c9;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .content {
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .content img {
+            max-width: 100%;
+            max-height: 100%;
+            border-radius: 12px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        form div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        form label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input, select, button {
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 2px solid #c8e6c9;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        button {
+            grid-column: span 2;
+            background-color: #1b5e20;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #388e3c;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <h1>Football Field Booking</h1>
+        <ul>
+            <li><a href="homepage.html" style="background-color: #1b5e20; color: white; padding: 10px 15px; border-radius: 5px; text-decoration: none; font-weight: bold;">HomePage</a></li>
+            <li><a href="index.html">Booking</a></li>
+            <li><a href="Packages.html">Packages</a></li>
+            <li><a href="Register.html">Register</a></li>
+            <li><a href="Aboutus.html">About Us</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li><a href="Login.html">Login</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <img src="https://e7.pngegg.com/pngimages/168/212/png-clipart-football-pitch-street-football-athletics-field-graphy-football-field-angle-text-thumbnail.png" alt="Football Field">
+    </div>
+
+    <div class="container">
+        <h2>Book Your Football Field Today</h2>
+        <form action="#" method="post">
+            <div>
+                <label for="date">Select Date:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+            <div>
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" placeholder="Your Name" required>
+            </div>
+            <div>
+                <label for="phone">Phone Number:</label>
+                <input type="text" id="phone" name="phone" placeholder="Your Phone Number" required>
+            </div>
+            <div>
+                <div class="container">
+                    <h2>Select Your Time</h2>
+                    <form id="timeForm">
+                        <label for="startTime">Start Time:</label>
+                        <input type="text" id="startTime" name="startTime" placeholder="Enter Start Time " required>
+            
+                        <label for="endTime">End Time:</label>
+                        <input type="text" id="endTime" name="endTime" placeholder="Enter End Time " required>
+            
+                        <button type="submit">Confirm Time</button>
+                    </form>
+            
+                    <div class="result" id="result"></div>
+                </div>
+            
+                <script>
+                    const form = document.getElementById('timeForm');
+                    const result = document.getElementById('result');
+            
+                    form.addEventListener('submit', function(event) {
+                        event.preventDefault();
+            
+                        const startTime = document.getElementById('startTime').value;
+                        const endTime = document.getElementById('endTime').value;
+            
+                        if (startTime && endTime) {
+                            result.textContent = `You have selected time from ${startTime} to ${endTime}.`;
+                        } else {
+                            result.textContent = 'Please enter both start and end times.';
+                        }
+                    });
+                </script>
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </div>
+</body>
+</html>
